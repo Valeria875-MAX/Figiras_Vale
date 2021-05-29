@@ -9,7 +9,7 @@ fig= turtle.Turtle() #Creamos el lapiz con el que vamos a dibujar
 
 
 
-def linea(x_vars,y_vars):
+def linea(x_vars,y_vars):  #DEfinimos la linua
     """Dibuja una linea en pixeles
 
     Args:
@@ -23,11 +23,11 @@ def linea(x_vars,y_vars):
         fig.penup() #levantamos el lapiz para que no dibuje
         fig.goto(x,y)
         fig.pendown()  #Colocamos el lapiz en el lienzo para poder dibujar
-        for i in range(4):  
-            fig. fd(LENGTH)
-            fig.rt(90)
+        for i in range(4):   
+            fig. fd(LENGTH)  #
+            fig.rt(90)  #noventa grados
 
-def cuadrilateros(matriz,algoritmo):
+def cuadrilateros(matriz,algoritmo): #definimos el cuadrilatero dentro llamamos de matriz algoritmo 
     if algoritmo == 1:
         lado1 = dda(matriz[0][0],matriz[0][1],matriz[1][0],matriz[1][1])    #matriz de [[x],[y]]
         lado2 = dda(matriz[0][0],matriz[0][1],matriz[2][0],matriz[2][1])
@@ -89,7 +89,14 @@ if __name__ == '__main__':
        
     elif (opcion == 3):
         #Triangulo rectangulo
-        pass
+        width,height=input("(x,y)").split(",")
+        width=int (width)
+        height=int (height)
+        puntos = puntos_Rectangulo(width, height)
+        print(f"Puntos:{puntos}")
+        resultados= triangulos(puntos,algoritmo)
+        print(f"Resultados:{resultados}")
+
     elif (opcion == 4):
         #otros
         pass

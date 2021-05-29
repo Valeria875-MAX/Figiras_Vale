@@ -1,11 +1,9 @@
 def dda(x,y,x2,y2):
-    dx = abs(x2-x)
-    dy = abs(y2-y)
-    steps = 0
-    if dx>dy:
-        steps = dx
-    else:
-        steps = dy
+    dx = x2-x
+    dy = y2-y
+    steps= abs(dy)
+    if abs(dx)>abs(dy):
+        steps=abs(dx)
 
     increment_x = dx / steps     
     increment_y = dy / steps
@@ -15,13 +13,17 @@ def dda(x,y,x2,y2):
     x_vars=[p1]
     y_vars=[p3]
     for i in range(steps):
-        p1 += increment_x
-        n = round(p1)
-        x_vars.append(n)
+        if dx<0:
+            p1 -= increment_x
+        else:
+            p1 += increment_x
 
-        p3 += increment_y
-        n = round(p3)
-        y_vars.append(n)
+        x_vars.append(round(p1))
+        if dy<0:
+            p3 += increment_y
+        else:
+            p3 +=increment_y
+        y_vars.append(round(p3))
     return x_vars,y_vars
 
 
@@ -54,6 +56,8 @@ def puntos_equilateros(b):
     punto3 = [x,y]
     return[origen,punto2,punto3]
 
+def puntos_Rectangulo(x,y):
+    return[[1,1],[x,1],[x,y]]
 
 if __name__ == '__main__':
     x = dda(1,1,1,5)
